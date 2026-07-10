@@ -11,7 +11,7 @@ The API is deployed live on **Railway**, and the Streamlit interface is deployed
 
 This project aims to automatically classify satellite images into different land cover categories using Convolutional Neural Networks (CNNs) and Transfer Learning.
 
-The final deployed model is **EfficientNetB3**, which achieved the best overall performance on the validation and test datasets.
+The final deployed model is **EfficientNetB3**, which achieved the best overall performance on the validation and test datasets. The trained model is publicly available on Hugging Face Hub.
 
 
 # 🚀 Features
@@ -24,7 +24,7 @@ The final deployed model is **EfficientNetB3**, which achieved the best overall 
 - Streamlit Web Application
 - Dockerized deployment
 - Configurable through `.env`
-- Automatic model download support (Google Drive)
+- Trained model hosted on Hugging Face Hub
 - Deployed on Railway (API) and Streamlit Community Cloud (UI)
 
 
@@ -32,9 +32,20 @@ The final deployed model is **EfficientNetB3**, which achieved the best overall 
 
 | Service | Platform | Link |
 |---------|----------|------|
-| REST API | Railway | [https://dp-production-2c54.up.railway.app/docs](https://your-app.up.railway.app) |
-| Web Interface | Streamlit Community Cloud | [https://hd385cjd4pb6pcczhc9zb4.streamlit.app/](https://your-app.streamlit.app) |
+| REST API | Railway | [https://dp-production-2c54.up.railway.app/docs](https://dp-production-2c54.up.railway.app/docs) |
+| Web Interface | Streamlit Community Cloud | [https://hd385cjd4pb6pcczhc9zb4.streamlit.app/](https://hd385cjd4pb6pcczhc9zb4.streamlit.app/) |
+| Trained Model | Hugging Face Hub | [https://huggingface.co/Mowael1/efficientnetb3-eurosat](https://huggingface.co/Mowael1/efficientnetb3-eurosat) |
 
+
+# 🧠 Trained Model
+
+The final trained **EfficientNetB3** model is hosted on Hugging Face Hub and can be downloaded or loaded directly from there:
+
+```
+https://huggingface.co/Mowael1/efficientnetb3-eurosat
+```
+
+This is the same model used in production by the deployed API on Railway.
 
 
 # 🛰 Dataset
@@ -304,6 +315,16 @@ Deployment steps:
 
 The deployed Streamlit app sends prediction requests to the live Railway API endpoint instead of `localhost`.
 
+### Model — Hugging Face Hub
+
+The trained **EfficientNetB3** model weights are hosted on Hugging Face Hub:
+
+```
+https://huggingface.co/Mowael1/efficientnetb3-eurosat
+```
+
+The deployed API on Railway loads the model from Hugging Face Hub instead of bundling it inside the Docker image, keeping the image lightweight.
+
 
 # ⚙️ Configuration
 
@@ -350,6 +371,7 @@ API_PORT=8000
 - Pydantic
 - Railway
 - Streamlit Community Cloud
+- Hugging Face Hub
 
 
 # 📄 License

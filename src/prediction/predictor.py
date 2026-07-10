@@ -21,7 +21,6 @@ class Predictor:
             settings.MODEL_FILE_NAME,
         )
 
-        # لو الموديل مش موجود محليًا (زي حالة الـ Docker image)، نزّله من Hugging Face
         if not os.path.exists(model_path):
             model_path = hf_hub_download(
                 repo_id="Mowael1/efficientnetb3-eurosat",
